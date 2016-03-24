@@ -401,34 +401,34 @@
         //
 
         this.container.find('.calendar')
-            .on('click.daterangepicker', '.prev', $.proxy(this.clickPrev, this))
-            .on('click.daterangepicker', '.next', $.proxy(this.clickNext, this))
-            .on('click.daterangepicker', 'td.available', $.proxy(this.clickDate, this))
+            .on('touchstart.daterangepicker', '.prev', $.proxy(this.clickPrev, this))
+            .on('touchstart.daterangepicker', '.next', $.proxy(this.clickNext, this))
+            .on('touchstart.daterangepicker', 'td.available', $.proxy(this.clickDate, this))
             .on('mouseenter.daterangepicker', 'td.available', $.proxy(this.hoverDate, this))
             .on('mouseleave.daterangepicker', 'td.available', $.proxy(this.updateFormInputs, this))
             .on('change.daterangepicker', 'select.yearselect', $.proxy(this.monthOrYearChanged, this))
             .on('change.daterangepicker', 'select.monthselect', $.proxy(this.monthOrYearChanged, this))
             .on('change.daterangepicker', 'select.hourselect,select.minuteselect,select.secondselect,select.ampmselect', $.proxy(this.timeChanged, this))
-            .on('click.daterangepicker', '.daterangepicker_input input', $.proxy(this.showCalendars, this))
+            .on('touchstart.daterangepicker', '.daterangepicker_input input', $.proxy(this.showCalendars, this))
             //.on('keyup.daterangepicker', '.daterangepicker_input input', $.proxy(this.formInputsChanged, this))
             .on('change.daterangepicker', '.daterangepicker_input input', $.proxy(this.formInputsChanged, this));
 
         this.container.find('.ranges')
-            .on('click.daterangepicker', 'button.applyBtn', $.proxy(this.clickApply, this))
-            .on('click.daterangepicker', 'button.cancelBtn', $.proxy(this.clickCancel, this))
-            .on('click.daterangepicker', 'li', $.proxy(this.clickRange, this))
+            .on('touchstart.daterangepicker', 'button.applyBtn', $.proxy(this.clickApply, this))
+            .on('touchstart.daterangepicker', 'button.cancelBtn', $.proxy(this.clickCancel, this))
+            .on('touchstart.daterangepicker', 'li', $.proxy(this.clickRange, this))
             .on('mouseenter.daterangepicker', 'li', $.proxy(this.hoverRange, this))
             .on('mouseleave.daterangepicker', 'li', $.proxy(this.updateFormInputs, this));
 
         if (this.element.is('input')) {
             this.element.on({
-                'click.daterangepicker': $.proxy(this.show, this),
+                'touchstart.daterangepicker': $.proxy(this.show, this),
                 'focus.daterangepicker': $.proxy(this.show, this),
                 'keyup.daterangepicker': $.proxy(this.elementChanged, this),
                 'keydown.daterangepicker': $.proxy(this.keydown, this)
             });
         } else {
-            this.element.on('click.daterangepicker', $.proxy(this.toggle, this));
+            this.element.on('touchstart.daterangepicker', $.proxy(this.toggle, this));
         }
 
         //
@@ -1066,7 +1066,7 @@
               // also support mobile devices
               .on('touchend.daterangepicker', this._outsideClickProxy)
               // also explicitly play nice with Bootstrap dropdowns, which stopPropagation when clicking them
-              .on('click.daterangepicker', '[data-toggle=dropdown]', this._outsideClickProxy)
+              .on('touchstart.daterangepicker', '[data-toggle=dropdown]', this._outsideClickProxy)
               // and also close when focus changes to outside the picker (eg. tabbing between controls)
               .on('focusin.daterangepicker', this._outsideClickProxy);
 

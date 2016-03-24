@@ -1,5 +1,9 @@
 # Date Range Picker for Bootstrap
 
+Based on Dan Grossman's [daterangepicker.js](http://www.daterangepicker.com).
+
+Click events are replaced with touchstart events.
+
 ![Improvely.com](http://i.imgur.com/LbAMf3D.png)
 
 This date range picker component for Bootstrap creates a dropdown menu from which a user can
